@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>បាំងមុខ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1/dist/face-api.js"></script>
+  <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+</head>
+
+<body>
+  <input type="file" name="file" id="file" hidden class="hidden">
+  <div class="container flex col gap">
+    <h2 style="text-align: center; border-bottom: 1px solid rgba(0,0,0,.05); padding-bottom: 1rem;">បាំងមុខ</h2>
+    <div class="loader hidden">
+      Loading&hellip;
+    </div>
+    <div id="stage-parent">
+      <div id="imageviewer"></div>
+    </div>
+
+    <div id="welcome-msg" class="msg align-center">
+      អ្នកអាចទម្លាក់រូបថតនៅទីនេះ ឬចុចលើប៊ូតុងជ្រើសរើសខាងក្រោម
+    </div>
+
+
+    <div id="info-msg" class="msg hidden align-center">
+      ចុចលើមុខមនុស្សដើម្បីបិទ ឬបើកការព្រិលនៅលើមុខ!
+    </div>
+
+    <div class="flex gap align-center">
+      <button onclick="file.value='';file.click()">ជ្រើសរើសរូបភាព</button>
+      <button class="hidden" id="download">ទាញយក</button>
+    </div>
+
+
+    <div class="align-center" style="border-top: 1px solid rgba(0,0,0,.05); padding-top: 1rem;">
+      <small>Made by <strong>Koh Santepheap Media Team</strong></small>
+    </div>
+
+  </div>
+  <script src="/app.js" type="module"></script>
+</body>
+
+</html>

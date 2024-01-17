@@ -1,0 +1,81 @@
+:root {
+  font-size: 16px;
+  font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'Noto Sans Khmer', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: inherit;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin: 1rem auto;
+  max-width: 720px;
+  padding: 0 1rem;
+}
+
+
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+
+.loader {
+  text-align: center;
+  padding: 1rem;
+  font-size: .8rem;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  padding: .6rem .8rem;
+  font-weight: 600;
+  border: none;
+  background-color: black;
+  color: white;
+  transition: .1s ease;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, .8);
+}
+
+button:active {
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.gap  {
+  gap: 1rem;
+}
+
+
+
+.msg {
+  line-height: 1.4;
+  font-size: 16px;
+  color: #333;
+  padding: .6rem 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.align-center {
+  align-self: center;
+}
+
+.align-start {
+  align-self: flex-start;
+}
