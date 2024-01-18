@@ -119,7 +119,7 @@ async function processImage(image, layer) {
     const rect = new Konva.Image({
       x: box.x,
       y: box.y + box.height * 0.1,
-      pixelSize: Math.ceil(box.height * 0.15),
+      pixelSize: Math.ceil(box.height * 0.2),
       width: box.width,
       height: box.height / 2,
       image: image,
