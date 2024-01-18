@@ -56,10 +56,35 @@ button:active {
   background-color: rgba(0, 0, 0, .9);
 }
 
-.gap  {
-  gap: 1rem;
+button.red {
+  background-color: #D24545;
 }
 
+button.red:active {
+  background-color: rgba(210, 69, 69, .9);
+}
+
+button.red:hover {
+  background-color: rgba(210, 69, 69, .8);
+}
+
+
+button.green {
+  background-color: #41644A;
+}
+
+button.green:active {
+  background-color: rgba(65, 100, 74, .9);
+}
+
+button.green:hover {
+  background-color: rgba(65, 100, 74, .8);
+}
+
+
+.gap  {
+  gap: .6rem;
+}
 
 
 .msg {

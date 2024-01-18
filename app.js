@@ -6,6 +6,7 @@ let currentFile = null;
 
 await faceapi.nets.ssdMobilenetv1.load("/");
 
+const $toggleVisibility = document.getElementById("toggle-visibility");
 const $download = document.getElementById("download")
 const $file = document.querySelector("#file");
 const $msgWelcome = document.querySelector("#welcome-msg");
@@ -104,37 +105,58 @@ async function renderImage(image) {
     $msgInfo.classList.remove("hidden")
   })
 
+  $toggleVisibility.classList.add("hidden");  
   $msgWelcome.classList.add("hidden")
 }
 
 async function processImage(image, layer) {
   const options = new faceapi.SsdMobilenetv1Options({ minConfidence: 0.1 })
   const results = await faceapi.detectAllFaces(image, options);
+
+  const rects = [];
   for (const result of results) {
     const box = result.box;
     const rect = new Konva.Image({
       x: box.x,
-      y: box.y,
-      pixelSize: Math.ceil(box.height * 0.2),
+      y: box.y + box.height * 0.1,
+      pixelSize: Math.ceil(box.height * 0.15),
       width: box.width,
-      height: box.height,
+      height: box.height / 2,
       image: image,
       crop: {
         x: box.x,
-        y: box.y,
+        y: box.y + box.height * 0.1,
         width: box.width,
-        height: box.height,
+        height: box.height / 2,
       }
     });
 
-    rect.on('mouseup', function () {
+    function toggle() {
       if (this.opacity()) this.opacity(0);
       else this.opacity(1);
-    });
+    }
+
+    rect.on('mouseup', toggle);
+    rect.on('touchend', toggle);
 
     rect.cache();
     rect.filters([Konva.Filters.Pixelate]);
     layer.add(rect);
+    rects.push(rect);
+  }
+
+  $toggleVisibility.classList.remove("hidden");
+  let isVisible = true;
+
+  $toggleVisibility.onclick = () => {
+    for (const rect of rects) {
+      if (isVisible) {
+        rect.opacity(0);
+      } else {
+        rect.opacity(1);
+      }
+    }
+    isVisible = !isVisible;
   }
 }
 
